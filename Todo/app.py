@@ -8,7 +8,7 @@ app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///testquestions.db'
 db = SQLAlchemy(app)
 
-class questions(db.Model):
+"""class questions(db.Model):
     __tablename__="questions"
     qid = db.Column(db.Integer, primary_key=True)
     subject =db.Column(db.String(200), nullable=False)
@@ -19,7 +19,7 @@ class questions(db.Model):
     option4 = db.Column(db.String(100), nullable=True)
     answer = db.Column(db.Integer, nullable=True)
     bcol = db.Column(db.String(100), nullable=True)   
-    status = db.Column(db.String(100),nullable=True)
+    status = db.Column(db.String(100),nullable=True)"""
 
 class Todo(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -78,7 +78,7 @@ def update(id):
 
 
 
-@app.route('/form',methods=['POST','GET'])
+"""@app.route('/form',methods=['POST','GET'])
 def adddata():
     if request.method == 'POST':
         sub = request.form['subject']
@@ -106,6 +106,7 @@ def show():
      new_qn = questions.query.order_by(questions.qid).all()
      return render_template('show.html',new_qn = new_qn)
 
+"""
 
 if __name__ == '__main__':
     app.run(debug=True)
